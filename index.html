@@ -12,144 +12,210 @@
     body{
       min-height:100vh;
       font-family:system-ui,-apple-system,"Segoe UI",Roboto,Ubuntu,sans-serif;
-      background:radial-gradient(circle at top,#8225ff 0,#2a004f 55%,#090015 100%);
+      background:radial-gradient(circle at top,#8a2cff 0,#2a004f 55%,#090015 100%);
       color:#fff;
       display:flex;
       align-items:center;
       justify-content:center;
       padding:18px;
     }
-    .wrapper{
-      width:100%;
-      max-width:480px;
-    }
+    .wrapper{width:100%;max-width:520px;}
     .logos{
       display:flex;
-      justify-content:space-between;
+      justify-content:center;
       align-items:center;
       margin-bottom:14px;
-      gap:10px;
+      gap:28px;
     }
-    .logo-item{
-      flex:1;
-      text-align:center;
-    }
+    .logo-item{flex:0 0 auto;text-align:center;}
     .logo-item img{
-      max-height:60px;
-      max-width:100%;
+      max-height:62px;
+      max-width:220px;
       object-fit:contain;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.35));
     }
 
     .card{
-      background:linear-gradient(180deg,#170420,#050109);
-      border-radius:22px;
+      background:linear-gradient(180deg,#1b0626,#050109);
+      border-radius:24px;
       padding:22px 18px 18px;
-      box-shadow:0 8px 30px rgba(0,0,0,.7);
-      border:1px solid rgba(255,255,255,.08);
+      box-shadow:0 12px 44px rgba(0,0,0,.72);
+      border:1px solid rgba(255,255,255,.10);
+      position:relative;
+      overflow:hidden;
     }
+    .card:before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width:240px;height:240px;
+      background:radial-gradient(circle at 30% 30%, rgba(130,55,255,.35), transparent 60%);
+      transform:rotate(15deg);
+      pointer-events:none;
+    }
+
     .pill{
       display:inline-block;
-      padding:6px 18px;
+      padding:7px 16px;
       border-radius:999px;
       background:rgba(255,255,255,.06);
       border:1px solid rgba(255,255,255,.18);
       font-size:12px;
-      font-weight:700;
+      font-weight:800;
       letter-spacing:.06em;
       text-transform:uppercase;
       margin-bottom:14px;
+      color:#f2edff;
     }
+
     .title{
-      font-size:24px;
+      font-size:26px;
       font-weight:900;
       text-transform:uppercase;
-      line-height:1.2;
+      line-height:1.15;
       margin-bottom:10px;
+      letter-spacing:.02em;
     }
     .subtitle{
       font-size:14px;
-      color:#e0d9ff;
-      margin-bottom:18px;
+      color:#e8e1ff;
+      margin-bottom:16px;
+      line-height:1.4;
     }
+    .subtitle strong{color:#ffffff}
 
+    /* BOTÓN */
     .btn-whatsapp{
       display:flex;
       align-items:center;
       justify-content:center;
-      gap:10px;
+      gap:12px;
       width:100%;
-      padding:15px 18px;
+      padding:16px 18px;
       border-radius:999px;
       border:none;
       cursor:pointer;
-      font-size:16px;
-      font-weight:800;
-      text-transform:uppercase;
-      background:linear-gradient(180deg,#15d15b,#09a33f);
-      color:#fff;
-      box-shadow:0 10px 26px rgba(4,130,46,0.8);
       text-decoration:none;
+      background:linear-gradient(180deg,#27e56d 0%, #11c354 55%, #0aa548 100%);
+      color:#fff;
+      box-shadow:0 18px 38px rgba(5,160,70,0.45);
+      position:relative;
+      transform:translateZ(0);
+      user-select:none;
+      -webkit-tap-highlight-color: transparent;
+      transition:transform .15s ease, filter .15s ease, box-shadow .15s ease;
+      animation: pulseGlow 3.6s ease-in-out infinite;
+    }
+    .btn-whatsapp:hover{
+      transform:translateY(-1px);
+      filter:brightness(1.03);
+      box-shadow:0 22px 46px rgba(5,160,70,0.55);
+    }
+    .btn-whatsapp:active{
+      transform:translateY(0px) scale(0.99);
+      filter:brightness(.98);
+      box-shadow:0 14px 32px rgba(5,160,70,0.45);
+    }
+    @keyframes pulseGlow{
+      0%, 100% { box-shadow:0 18px 38px rgba(5,160,70,0.45); }
+      50%      { box-shadow:0 22px 50px rgba(5,160,70,0.62); }
     }
     .btn-whatsapp img{
       width:22px;
       height:22px;
+      flex:0 0 auto;
+      filter: drop-shadow(0 10px 14px rgba(0,0,0,.25));
+    }
+    .btn-text{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      line-height:1.05;
+      gap:4px;
+      text-align:center;
+    }
+    .btn-text .main{
+      font-size:16px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+    }
+    .btn-text .sub{
+      font-size:12px;
+      font-weight:700;
+      color:rgba(255,255,255,.92);
+      text-transform:none;
+      letter-spacing:0;
     }
 
     .bar{
       margin-top:14px;
-      padding:8px 10px;
+      padding:9px 12px;
       border-radius:999px;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.16);
       font-size:11px;
-      font-weight:700;
+      font-weight:800;
       text-transform:uppercase;
       color:#ffe86a;
       text-align:center;
+      letter-spacing:.04em;
     }
 
     .stats{
-      margin-top:16px;
+      margin-top:14px;
       padding:10px 10px 6px;
       border-radius:16px;
-      background:rgba(255,255,255,.02);
-      border:1px solid rgba(255,255,255,.11);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.12);
       display:flex;
       justify-content:space-between;
+      gap:6px;
       font-size:12px;
     }
-    .stat-item{
-      flex:1;
-      text-align:center;
-    }
+    .stat-item{flex:1;text-align:center;padding:6px 4px;border-radius:12px;}
     .stat-label{
-      color:#cdbfff;
-      font-weight:600;
+      color:#d9cfff;
+      font-weight:700;
       margin-bottom:4px;
       font-size:11px;
     }
     .stat-value{
-      font-weight:800;
+      font-weight:900;
       color:#fff;
     }
 
+    .games-wrap{margin-top:14px;}
+    .games-title{
+      font-size:12px;
+      font-weight:800;
+      color:#e8e1ff;
+      margin:0 0 10px;
+      text-align:center;
+      opacity:.95;
+    }
     .games-image{
-      margin-top:16px;
       width:100%;
       border-radius:14px;
       overflow:hidden;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:0 10px 30px rgba(0,0,0,.45);
     }
-    .games-image img{
-      width:100%;
-      display:block;
-      border-radius:14px;
-    }
+    .games-image img{width:100%;display:block;border-radius:14px;}
 
     .footer{
-      margin-top:10px;
+      margin-top:12px;
       font-size:10px;
       text-align:center;
-      color:#b39fdd;
+      color:#c7b5ee;
+      line-height:1.35;
+    }
+    .trustline{
+      display:block;
+      margin-bottom:6px;
+      color:#efe8ff;
+      font-weight:800;
+      opacity:.92;
     }
   </style>
 
@@ -165,7 +231,7 @@
       s.parentNode.insertBefore(t,s)
     }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
 
-    fbq('init', '711179821799803');   // Nuevo Pixel ID
+    fbq('init', '711179821799803');
     fbq('track', 'PageView');
   </script>
   <noscript>
@@ -182,59 +248,142 @@
     </div>
 
     <section class="card">
-      <div class="pill">ACCESO VIP</div>
+      <div class="pill">ACCESO VIP • NUEVOS USUARIOS</div>
 
       <h1 class="title">Súper bono de bienvenida</h1>
-      <p class="subtitle">Escribinos apretando el botón de abajo para activar tu bono.</p>
+      <p class="subtitle">
+        <strong>Activá tu bono ahora mismo.</strong><br>
+        Un asesor real te escribe por WhatsApp.
+      </p>
 
-      <a
-        id="btn-whatsapp"
-        class="btn-whatsapp"
-        href="https://wa.me/541162823606?text=Hola%20quiero%20un%20usuario"
-        target="_blank"
-        rel="noopener"
-      >
+      <!-- BOTÓN PRINCIPAL -->
+      <a id="btn-whatsapp" class="btn-whatsapp" href="#" rel="noopener">
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="">
-        WHATSAPP OFFICIAL
+        <span class="btn-text">
+          <span class="main">WHATSAPP OFICIAL</span>
+          <span class="sub">Respuesta inmediata • Sin bots</span>
+        </span>
       </a>
 
-      <div class="bar">Atención y retiros sin límites las 24 hs</div>
+      <!-- BACKUP invisible -->
+      <a id="btn-whatsapp-backup" href="#" aria-hidden="true"
+         style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">
+        Backup WhatsApp
+      </a>
 
+      <div id="wa-status" class="bar">✔ Atención 24 hs • ✔ Retiros sin límites</div>
+
+      <!-- STATS (orden optimizado) -->
       <div class="stats">
         <div class="stat-item">
           <div class="stat-label">BONO</div>
           <div class="stat-value">Especial</div>
         </div>
         <div class="stat-item">
-          <div class="stat-label">Mínimo de carga</div>
-          <div class="stat-value">$1.000</div>
-        </div>
-        <div class="stat-item">
           <div class="stat-label">Mínimo de retiro</div>
           <div class="stat-value">$2.000</div>
         </div>
+        <div class="stat-item">
+          <div class="stat-label">Mínimo de carga</div>
+          <div class="stat-value">$1.000</div>
+        </div>
       </div>
 
-      <div class="games-image">
-        <!-- Asegurate de que este archivo exista en tu host -->
-        <img src="juegos.jpeg" alt="Juegos">
+      <div class="games-wrap">
+        <p class="games-title">Slots, casino en vivo y apuestas deportivas</p>
+        <div class="games-image">
+          <img src="juegos.jpeg" alt="Juegos">
+        </div>
       </div>
 
-      <p class="footer">© 2025 • Juego solo +18. Operá con responsabilidad.</p>
+      <p class="footer">
+        <span class="trustline">Plataforma segura • Pagos verificados</span>
+        © 2025 • Juego solo +18. Operá con responsabilidad.
+      </p>
     </section>
   </div>
 
-  <!-- EVENTO CLICK WHATSAPP -->
+  <!-- TRACKING ROBUSTO + BACKUP -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      var btn = document.getElementById('btn-whatsapp');
-      if (!btn) return;
+      // ✅ CAMBIÁS EL NÚMERO ACÁ (1 sola línea)
+      var WHATSAPP_PHONE = "541162823606"; // sin +, solo números
 
-      btn.addEventListener('click', function () {
-        if (typeof fbq === 'function') {
-          fbq('trackCustom', 'clickwhatsapp', {
-            page: window.location.href
-          });
+      // (opcional) Cambiá el mensaje acá
+      var DEFAULT_TEXT = "Hola, quiero mi bono de bienvenida. Quiero un usuario.";
+
+      var btn = document.getElementById('btn-whatsapp');
+      var backup = document.getElementById('btn-whatsapp-backup');
+      var isLocked = false;
+
+      function sanitizePhone(raw){
+        return String(raw || "").replace(/[^\d]/g, "");
+      }
+      function buildWaLink(phone, text){
+        var p = sanitizePhone(phone);
+        var t = encodeURIComponent(text || "");
+        return "https://wa.me/" + p + "?text=" + t;
+      }
+      function setLinks(link){
+        if (btn) btn.setAttribute('href', link);
+        if (backup) backup.setAttribute('href', link);
+      }
+
+      // Seteamos link final
+      var waLinkFinal = buildWaLink(WHATSAPP_PHONE, DEFAULT_TEXT);
+      setLinks(waLinkFinal);
+
+      function firePixel(name, data){
+        try { if (typeof fbq === 'function') fbq('trackCustom', name, data || {}); } catch(e) {}
+      }
+
+      function goWhatsApp(source){
+        if (isLocked) return;
+        isLocked = true;
+
+        var payload = { page: window.location.href, source: source || "main" };
+
+        // Track temprano
+        firePixel('clickwhatsapp', payload);
+        firePixel('clickwhatsapp_intent', payload);
+
+        // Espera mínima para que el request del pixel salga antes de navegar
+        setTimeout(function(){
+          window.location.href = waLinkFinal;
+        }, 220);
+
+        // Segundo intento invisible por si el primero se corta (casos raros)
+        setTimeout(function(){
+          try { if (backup) backup.click(); } catch(e) {}
+          isLocked = false;
+        }, 1400);
+      }
+
+      // Pointerdown mejora muchísimo en mobile
+      if (btn){
+        btn.addEventListener('pointerdown', function(e){
+          e.preventDefault();
+          goWhatsApp("main_pointerdown");
+        }, { passive: false });
+
+        // Fallback
+        btn.addEventListener('click', function(e){
+          e.preventDefault();
+          goWhatsApp("main_click");
+        });
+      }
+
+      // Backup track
+      if (backup){
+        backup.addEventListener('click', function(){
+          firePixel('clickwhatsapp_backup', { page: window.location.href });
+        });
+      }
+
+      // “Return” (aprox) cuando vuelve a la pestaña
+      document.addEventListener('visibilitychange', function(){
+        if (document.visibilityState === 'visible'){
+          firePixel('clickwhatsapp_return', { page: window.location.href });
         }
       });
     });
